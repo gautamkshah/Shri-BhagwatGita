@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".viewmodel.VerseDetailFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+        
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/llTop"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="65dp"
+                        android:id="@+id/llBhagwatGita"
+                        android:padding="13dp"
+                        android:gravity="center"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        >
+
+                        <ImageView
+                            android:layout_width="19dp"
+                            android:layout_height="19dp"
+                            android:src="@drawable/kalash"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tvChapterNumber"
+                            android:text="Shree Bhagvat Gita"
+                            android:textStyle="bold"
+                            android:layout_marginHorizontal="2.60dp"
+                            android:textSize="26sp"
+                            android:textColor="@color/splash"/>
+
+                        <ImageView
+                            android:layout_width="19dp"
+                            android:layout_height="19dp"
+                            android:src="@drawable/kalash"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingEnd="10dp"
+
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
+                        <ImageView
+                            android:layout_width="39dp"
+                            android:layout_height="39dp"
+                            android:visibility="visible"
+                            android:id="@+id/ivFavouriteVerse"
+                            android:src="@drawable/baseline_favorite_border_24"
+                            app:tint="@color/splash"
+                            />
+                        <ImageView
+                            android:layout_width="39dp"
+                            android:layout_height="39dp"
+                            android:visibility="gone"
+                            android:id="@+id/ivFavouriteVerseFilled"
+                            android:src="@drawable/baseline_favorite_24"
+                            app:tint="@color/splash"
+                            />
+
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <com.google.android.material.progressindicator.LinearProgressIndicator
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/progressbar"
+                    android:indeterminate="true"
+                    android:indeterminateTint="@color/splash"
+                    app:layout_anchor="@id/llBhagwatGita"
+                    app:layout_anchorGravity="bottom"
+                    app:indicatorColor="@color/splash"
+                    app:trackColor="#F8D6C9"
+                    android:visibility="visible"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvVerseNumber"
+                    android:text="||1.6||"
+                    android:textColor="@color/black"
+                    android:visibility="visible"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_marginTop="13dp"
+                    android:textSize="22dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="visible"
+                    android:id="@+id/tvVersetext"
+                    android:text="djknv"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:gravity="center"
+                    android:layout_marginHorizontal="6dp"
+                    android:textColor="@color/splash"
+                    android:layout_marginTop="9dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvTransliterationIfEnglish"
+                    android:visibility="visible"
+                    android:text="dfkn dkjfn jkvns kvn"
+                    android:textColor="@color/black"
+                    android:layout_marginHorizontal="6dp"
+                    android:gravity="center"
+                    android:layout_marginTop="13dp"
+                    android:textSize="14sp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvWordIfEnglish"
+                    android:visibility="visible"
+                    android:text="dfkn dkjfn jkvns kvn"
+                    android:textColor="@color/black"
+                    android:layout_marginHorizontal="6dp"
+                    android:gravity="center"
+                    android:layout_marginTop="13dp"
+                    android:textSize="14sp"/>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp"
+                    android:visibility="visible"
+                    android:id="@+id/view"
+                    android:src="@drawable/verse_view"/>
+                
+
+            </LinearLayout>
+            
+            <ImageView
+                android:layout_width="260dp"
+                android:layout_height="260dp"
+                android:id="@+id/backgroundImage"
+                android:src="@drawable/krsna"
+                android:scaleType="centerInside"
+                android:alpha="0.15"
+                android:visibility="visible"
+                android:layout_marginTop="39dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/llBottom"
+                android:background="@android:color/transparent"/>
+
+            <LinearLayout
+                android:id="@+id/llBottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/llTop">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvtranslation"
+                    android:text="Translation"
+                    android:textStyle="bold"
+                    android:visibility="visible"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="13dp"
+                    android:layout_marginHorizontal="6dp"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/clTranslation"
+                    android:visibility="visible"
+                    android:layout_marginTop="13dp"
+                    android:layout_marginHorizontal="6dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/linearlayout"
+                        android:background="@drawable/bg_verse_card"
+                        android:orientation="vertical"
+                        android:padding="6.50dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="6dp"
+                            >
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/tvAuthor"
+                                android:text="Author"
+                                android:textColor="@color/black"
+                                android:textSize="11dp"
+                                android:textStyle="bold"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/tvArrow"
+                                android:text=" : "
+                                android:textColor="@color/splash"
+                                android:textSize="13dp"
+                                android:textStyle="bold"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/tvAuthorName"
+                                android:text="awami"
+                                android:textColor="@color/splash"
+                                android:textSize="14dp"
+                                android:textStyle="bold"/>
+
+                        </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tvText"
+                            android:textColor="#000000"
+                            android:paddingHorizontal="6dp"
+                            android:paddingBottom="26dp"
+                            android:text="dlkn dkjdfbgbjhbgkfnbfksbfjksbfkjsbgfkjbsgkjsbg gbnksgjbskjgbg skjgbskgbs gskjgbskgbs gksjbgs gksjbgs gksjgbs gksjgbs gksjgb jdbgkjbdbgkjbdbkjgg gdjkgbbkjn"
+                            android:textSize="17sp"
+                            />
+
+
+                    </LinearLayout>
+
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/fabtransright"
+                    android:src="@drawable/baseline_keyboard_arrow_right_24"
+                    app:tint="@color/white"
+                    app:layout_constraintEnd_toEndOf="@+id/linearlayout"
+                    app:layout_constraintTop_toBottomOf="@+id/linearlayout"
+                    app:layout_constraintBottom_toBottomOf="@+id/linearlayout"
+                    android:layout_marginEnd="10dp"
+                    android:backgroundTint="@color/splash"
+                    />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/fabtransleft"
+                    android:visibility="gone"
+                    android:src="@drawable/baseline_keyboard_arrow_left_24"
+                    android:tint="@color/white"
+                    android:layout_marginStart="10dp"
+                    android:backgroundTint="@color/splash"
+                    app:layout_constraintStart_toStartOf="@+id/linearlayout"
+                    app:layout_constraintTop_toBottomOf="@+id/linearlayout"
+                    app:layout_constraintBottom_toBottomOf="@+id/linearlayout"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvCommentries"
+                    android:visibility="visible"
+                    android:text="commentries"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_marginHorizontal="7dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="13dp"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/clCommentries"
+                    android:visibility="visible"
+                    android:layout_marginTop="13dp"
+                    android:layout_marginHorizontal="6dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/linearlayoutCommentries"
+                          android:background="@drawable/bg_verse_card"
+                        android:orientation="vertical"
+                        android:padding="6.50dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="6dp"
+                            >
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/tvAuthorCommentries"
+                                android:text="Author"
+                                android:textColor="@color/black"
+                                android:textSize="11dp"
+                                android:textStyle="bold"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/tvArrowCommentries"
+                                android:text=" : "
+                                android:textColor="@color/splash"
+                                android:textSize="13dp"
+                                android:textStyle="bold"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/tvAuthorNameCommentries"
+                                android:text="awami"
+                                android:textColor="@color/splash"
+                                android:textSize="14dp"
+                                android:textStyle="bold"/>
+
+                        </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tvTextCommentries"
+                            android:textColor="#000000"
+                            android:paddingHorizontal="6dp"
+                            android:paddingBottom="26dp"
+                            android:text="dlkn dkjn"
+                            android:maxLines="3"
+                            android:textSize="17sp"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/tvseemore"
+                            android:layout_marginStart="6dp"
+                            android:text="See More"
+                            android:textColor="@color/splash"
+                            android:textSize="13dp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="6dp"
+                            android:layout_marginBottom="6dp"
+                            android:visibility="visible"
+                            android:layout_marginEnd="6dp"/>
+
+            </LinearLayout>
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/fabright"
+                        android:src="@drawable/baseline_keyboard_arrow_right_24"
+                        app:tint="@color/white"
+                        app:layout_constraintEnd_toEndOf="@+id/linearlayoutCommentries"
+                        app:layout_constraintTop_toBottomOf="@+id/linearlayoutCommentries"
+                        app:layout_constraintBottom_toBottomOf="@+id/linearlayoutCommentries"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="30dp"
+                        android:backgroundTint="@color/splash"
+                        />
+
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/fableft"
+                        android:visibility="gone"
+                        android:src="@drawable/baseline_keyboard_arrow_left_24"
+                        android:tint="@color/white"
+                        android:layout_marginStart="10dp"
+                        android:backgroundTint="@color/splash"
+                        app:layout_constraintStart_toStartOf="@+id/linearlayoutCommentries"
+                        app:layout_constraintTop_toTopOf="@+id/linearlayoutCommentries"
+                        app:layout_constraintBottom_toBottomOf="@+id/linearlayoutCommentries"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+            <ImageView
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_100sdp"
+                android:id="@+id/iv"
+                android:src="@drawable/no_internet"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvshowingmessage"
+                android:text="No Internet Connection"
+                android:textColor="@color/splash"
+                android:textSize="20sp"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            
+            
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,7 +1,8 @@
-package com.example.shribhagwatgita
+package com.example.shribhagwatgita.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.shribhagwatgita.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
