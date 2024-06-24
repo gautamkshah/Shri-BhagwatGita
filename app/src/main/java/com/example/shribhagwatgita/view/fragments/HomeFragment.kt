@@ -44,18 +44,18 @@ class HomeFragment : Fragment() {
 
     private fun checkInternetConnectivity() {
         val networkManager= NetworkManager(requireContext())
-        networkManager.observe(viewLifecycleOwner,{
-            if(it){
+        networkManager.observe(viewLifecycleOwner) {
+            if (it) {
                 getAllChapter()
-                binding.shimmer.visibility=View.VISIBLE
-                binding.rvChapters.visibility=View.VISIBLE
-                binding.tvShowingMessage.visibility=View.GONE
-            }else{
-                binding.shimmer.visibility=View.GONE
-                binding.rvChapters.visibility=View.GONE
-                binding.tvShowingMessage.visibility=View.VISIBLE
+                binding.shimmer.visibility = View.VISIBLE
+                binding.rvChapters.visibility = View.VISIBLE
+                binding.tvShowingMessage.visibility = View.GONE
+            } else {
+                binding.shimmer.visibility = View.GONE
+                binding.rvChapters.visibility = View.GONE
+                binding.tvShowingMessage.visibility = View.VISIBLE
             }
-        })
+        }
     }
 
     private fun getAllChapter() {

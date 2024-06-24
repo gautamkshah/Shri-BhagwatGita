@@ -1,5 +1,6 @@
 package com.example.shribhagwatgita.repositry
 
+import android.util.Log
 import com.example.shribhagwatgita.datasource.api.ApiUtilities
 import com.example.shribhagwatgita.models.ChaptersItem
 import com.example.shribhagwatgita.models.VersesItem
@@ -51,12 +52,14 @@ class AppRepository {
         val callback = object : Callback<VersesItem> {
             override fun onResponse(call: Call<VersesItem>, response: Response<VersesItem>) {
                 if(response.isSuccessful && response.body()!=null){
+
                     trySend(response.body()!!)
                     close()
                 }
             }
 
             override fun onFailure(call: Call<VersesItem>, t: Throwable) {
+                Log.d("TAaaG", "onFailure: ${t.message}")
                 close(t)
             }
         }

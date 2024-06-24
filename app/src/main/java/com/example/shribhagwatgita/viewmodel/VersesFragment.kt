@@ -91,12 +91,14 @@ class VersesFragment : Fragment() {
     }
 
     private fun OnVerseItemViewClicked(verse: String, verseNumber: Int){
+        // on click , give read more option
         findNavController().navigate(R.id.action_versesFragment_to_verseDetailFragment,
             Bundle().apply {
                 putString("verse",verse)
                 putInt("verseNumber",verseNumber)
                 putInt("chapterNumber",chapterNumberr)
             })
+
 
     }
 
@@ -106,9 +108,9 @@ class VersesFragment : Fragment() {
                 adapterVerses= AdapterVerses(::OnVerseItemViewClicked)
                 binding.rvVerses.adapter=adapterVerses
                 val verseList = arrayListOf<String>()
-                for(currentVerse in it){
-                    for(verses in currentVerse.translations){
-                        if(verses.language == "english"){
+                for(currentVerse in it) {
+                    for (verses in currentVerse.translations) {
+                        if (verses.language == "english") {
                             verseList.add(verses.description)
                             break
                         }
