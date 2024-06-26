@@ -1,7 +1,12 @@
 package com.example.shribhagwatgita.repositry
 
 import android.util.Log
+import androidx.lifecycle.LiveData
 import com.example.shribhagwatgita.datasource.api.ApiUtilities
+import com.example.shribhagwatgita.datasource.api.room.SavedChapters
+import com.example.shribhagwatgita.datasource.api.room.SavedChaptersDao
+import com.example.shribhagwatgita.datasource.api.room.SavedVerses
+import com.example.shribhagwatgita.datasource.api.room.SavedVersesDao
 import com.example.shribhagwatgita.models.ChaptersItem
 import com.example.shribhagwatgita.models.VersesItem
 import kotlinx.coroutines.channels.awaitClose
@@ -11,7 +16,14 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class AppRepository {
+
+
+
+
+
+
+
+class AppRepository (val SavedChaptersDao: SavedChaptersDao, val SavedVersesDao: SavedVersesDao){
 
     fun getAllChapters() : Flow<List<ChaptersItem>> = callbackFlow{
         val callback=object : Callback<List<ChaptersItem>>{
@@ -66,5 +78,35 @@ class AppRepository {
         ApiUtilities.api.getParticularVerse(chapterNumber, verseNumber).enqueue(callback)
         awaitClose {}
     }
+
+    suspend fun insertChapter(savedChapters: SavedChapters)= SavedChaptersDao.insertChapter(savedChapters)
+
+    fun getSavedChapters(): LiveData<List<SavedChapters>> = SavedChaptersDao.getSavedChapters()
+
+    fun getParticularChapter(chapterNumber:Int): LiveData<SavedChapters> = SavedChaptersDao.getParticularChapter(chapterNumber)
+
+    suspend fun deleteChapter(chapterNumber: Int) = SavedChaptersDao.deleteChapter(chapterNumber)
+
+
+    // saved verses
+    suspend fun insertEnglishVerse(versesInEnglish: SavedVerses) = SavedVersesDao.insertEnglishVerse(versesInEnglish)
+    fun getSavedEnglishVerses(): LiveData<List<SavedVerses>> = SavedVersesDao.getSavedEnglishVerses()
+
+
+    fun getParticularEnglishVerse(chapterNumber: Int, verseNumber: Int): LiveData<SavedVerses> = SavedVersesDao.getParticularEnglishVerse(chapterNumber, verseNumber)
+
+    suspend fun deleteParticularVerse(chapterNumber: Int, verseNumber: Int) = SavedVersesDao.deleteParticularVerse(chapterNumber, verseNumber)
+
+
+
+
+
+
+
+
+
+
+
+
 }
 

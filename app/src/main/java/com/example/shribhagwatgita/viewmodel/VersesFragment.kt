@@ -23,6 +23,7 @@ class VersesFragment : Fragment() {
     private lateinit var binding: FragmentVersesBinding
     private lateinit var adapterVerses: AdapterVerses
 
+
     private var chapterNumberr= 0
 
     override fun onCreateView(
@@ -33,9 +34,42 @@ class VersesFragment : Fragment() {
         onReadMoreClicked()
         getAndSetChapterDetails()
         getAllVerses()
-        checkInternetConnectivity()
+        getData()
+        changeStatusBarColor()
+
 
         return binding.root
+
+    }
+
+    private fun getData() {
+        val bundle=Bundle()
+        val showData=bundle.getBoolean("showRoom")
+        val chapdescription=bundle.getString("chapterdesc")
+        Log.d("TAAAG", "getData: $showData $chapdescription")
+        val te=binding.tvChapterDesc.text.toString()
+        if(te.length==0){
+            binding.tvshowmore.visibility=View.GONE
+        }
+
+        if(showData){
+
+            getDatafromRoom()
+        }else{
+            checkInternetConnectivity()
+        }
+    }
+
+    private fun getDatafromRoom() {
+        viewModel.getParticularChapter(chapterNumberr).observe(viewLifecycleOwner){
+            binding.apply {
+                tvChaptertitle.text=it.name
+                tvChapterDesc.text=it.chapter_summary
+                tvnumberofverses.text=it.verses_count.toString()
+                tvChapterNumber.text= "Chapter : ${it.chapter_number}"
+            }
+//            showListinAdapter(it.verse)
+        }
 
     }
 
@@ -105,8 +139,7 @@ class VersesFragment : Fragment() {
     private fun getAllVerses() {
         lifecycleScope.launch {
             viewModel.getVerses(chapterNumberr).collect {
-                adapterVerses= AdapterVerses(::OnVerseItemViewClicked)
-                binding.rvVerses.adapter=adapterVerses
+
                 val verseList = arrayListOf<String>()
                 for(currentVerse in it) {
                     for (verses in currentVerse.translations) {
@@ -116,10 +149,18 @@ class VersesFragment : Fragment() {
                         }
                     }
                 }
-                adapterVerses.differ.submitList(verseList)
-                binding.shimmer.visibility=View.GONE
+                showListinAdapter(verseList)
+
             }
         }
+    }
+
+    private fun showListinAdapter(verseList: List<String>) {
+        adapterVerses= AdapterVerses(::OnVerseItemViewClicked, true)
+        binding.rvVerses.adapter=adapterVerses
+        adapterVerses.differ.submitList(verseList)
+        binding.shimmer.visibility=View.GONE
+
     }
 
     private fun changeStatusBarColor() {

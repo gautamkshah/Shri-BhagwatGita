@@ -22,6 +22,9 @@
         <action
             android:id="@+id/action_homeFragment_to_versesFragment"
             app:destination="@id/versesFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_settingFragment"
+            app:destination="@id/settingFragment" />
     </fragment>
     <fragment
         android:id="@+id/versesFragment"
@@ -37,4 +40,37 @@
         android:name="com.example.shribhagwatgita.viewmodel.VerseDetailFragment"
         android:label="fragment_verse_detail"
         tools:layout="@layout/fragment_verse_detail" />
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.example.shribhagwatgita.SettingFragment"
+        android:label="fragment_setting"
+        tools:layout="@layout/fragment_setting" >
+        <action
+            android:id="@+id/action_settingFragment_to_savedChaptersFragment"
+            app:destination="@id/savedChaptersFragment" />
+        <action
+            android:id="@+id/action_settingFragment_to_savedVersesFragment"
+            app:destination="@id/savedVersesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/savedChaptersFragment"
+        android:name="com.example.shribhagwatgita.SavedChaptersFragment"
+        android:label="fragment_saved_chapters"
+        tools:layout="@layout/fragment_saved_chapters" >
+        <action
+            android:id="@+id/action_savedChaptersFragment_to_savedVersesFragment"
+            app:destination="@id/savedVersesFragment" />
+        <action
+            android:id="@+id/action_savedChaptersFragment_to_versesFragment"
+            app:destination="@id/versesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/savedVersesFragment"
+        android:name="com.example.shribhagwatgita.SavedVersesFragment"
+        android:label="fragment_saved_verses"
+        tools:layout="@layout/fragment_saved_verses" >
+        <action
+            android:id="@+id/action_savedVersesFragment_to_verseDetailFragment"
+            app:destination="@id/verseDetailFragment" />
+    </fragment>
 </navigation>

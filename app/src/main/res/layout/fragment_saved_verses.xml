@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:background="@color/white"
+android:layout_height="match_parent"
+tools:context=".SavedVersesFragment">
+
+<LinearLayout
+    android:id="@+id/llTop"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:layout_constraintEnd_toEndOf="parent"
+
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:id="@+id/llBhagwatGita"
+        android:gravity="center"
+        android:padding="13dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <ImageView
+            android:layout_width="19.50dp"
+            android:layout_height="19.50dp"
+            android:src="@drawable/kalash"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvchapternumber"
+            android:layout_marginHorizontal="2.60dp"
+            android:text="Shree Bhagwat Gita"
+            android:textColor="@color/splash"
+            android:textSize="26sp"
+            android:textStyle="bold"/>
+
+        <ImageView
+            android:layout_width="19.50dp"
+            android:layout_height="19.50dp"
+            android:src="@drawable/kalash"/>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13.00dp"
+        android:layout_marginTop="19.50dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvversees"
+            android:layout_marginStart="6.50dp"
+            android:gravity="center"
+            android:text="Saved Verses"
+            android:textColor="@color/black"
+            android:textSize="19.30dp"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvshowingmessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:text="No internet Connection!!"
+        android:textStyle="bold"
+        android:textColor="@color/splash"
+        android:gravity="center"
+        android:textSize="18.3sp"
+        android:layout_marginTop="260dp"/>
+
+</LinearLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/llBottom"
+    android:orientation="horizontal"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/llTop">
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/shimmer"
+        android:visibility="visible"
+        android:layout_margin="6.50dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <include layout="@layout/shimmer_iv_verses"/>
+            <include layout="@layout/shimmer_iv_verses"/>
+            <include layout="@layout/shimmer_iv_verses"/>
+            <include layout="@layout/shimmer_iv_verses"/>
+            <include layout="@layout/shimmer_iv_verses"/>
+            <include layout="@layout/shimmer_iv_verses"/>
+        </LinearLayout>
+
+
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rvVerses"
+        android:visibility="visible"
+        android:layout_margin="6.50dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_view_verses"/>
+
+</LinearLayout>
+
+
+<ImageView
+    android:layout_width="260dp"
+    android:layout_height="260dp"
+    android:id="@+id/backgroundImage"
+    android:src="@drawable/krsna"
+    android:scaleType="centerInside"
+    android:alpha="0.15"
+    android:layout_marginTop="15dp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+
+    android:background="@android:color/transparent"/>
+
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

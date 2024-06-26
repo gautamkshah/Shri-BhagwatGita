@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shribhagwatgita.databinding.ItemViewVersesBinding
 
-class AdapterVerses(val OnVerseItemViewClicked: (String, Int) -> Unit) : RecyclerView.Adapter<AdapterVerses.VersesViewHolder>() {
+class AdapterVerses(val OnVerseItemViewClicked: (String, Int) -> Unit, b: Boolean) : RecyclerView.Adapter<AdapterVerses.VersesViewHolder>() {
     class VersesViewHolder (val binding: ItemViewVersesBinding):RecyclerView.ViewHolder(binding.root)
 
     val diffUtil= object: DiffUtil.ItemCallback<String>() {

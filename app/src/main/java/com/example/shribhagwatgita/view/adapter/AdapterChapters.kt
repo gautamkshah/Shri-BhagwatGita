@@ -7,8 +7,14 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shribhagwatgita.databinding.ItemViewChaptersBinding
 import com.example.shribhagwatgita.models.ChaptersItem
+import kotlin.reflect.KFunction1
 
-class AdapterChapters(val onChapterItemViewClick: (ChaptersItem) -> Unit) :RecyclerView.Adapter<AdapterChapters.ChaptersViewHolder>(){
+class AdapterChapters(
+    val onChapterItemViewClick: (ChaptersItem) -> Unit,
+    val onFavoriteClick: (ChaptersItem) -> Unit,
+    val show: Boolean,
+    val onFavoriteFilledclicked: KFunction1<ChaptersItem, Unit>
+) :RecyclerView.Adapter<AdapterChapters.ChaptersViewHolder>(){
     class ChaptersViewHolder (val binding: ItemViewChaptersBinding):RecyclerView.ViewHolder(binding.root){
 
     }
@@ -42,10 +48,31 @@ class AdapterChapters(val onChapterItemViewClick: (ChaptersItem) -> Unit) :Recyc
 
 
         }
+        if(!show){
+            holder.binding.ivFavorite.visibility=android.view.View.GONE
+
+        }
+        else{
+            holder.binding.ivFavorite.visibility=android.view.View.VISIBLE
+
+        }
 
         holder.binding.ll.setOnClickListener {
             onChapterItemViewClick(chapter)
 
+        }
+
+        holder.binding.apply {
+            ivFavorite.setOnClickListener {
+                ivFavoriteFilled.visibility=android.view.View.VISIBLE
+                ivFavorite.visibility=android.view.View.GONE
+                onFavoriteClick(chapter)
+            }
+            ivFavoriteFilled.setOnClickListener {
+                ivFavoriteFilled.visibility=android.view.View.GONE
+                ivFavorite.visibility=android.view.View.VISIBLE
+                onFavoriteFilledclicked(chapter)
+            }
         }
     }
 
